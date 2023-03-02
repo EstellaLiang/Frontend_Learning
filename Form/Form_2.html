@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valid&Invalid</title>
+    <style>
+        .container{
+            margin: 100px; position:relative;
+        }
+        input{
+            border:1px solid #999;
+            outline: 0;
+            width: 140px;
+            height: 30px;
+            line-height: 120%;
+            text-indent: 36px;
+            transition: all .3s;
+            border-radius: 5px;
+        }
+        span.title{
+            position: absolute;
+            line-height: 30px;
+            height: 30px;
+            left: 2px;
+            top:2px;
+            transition: all .3s;
+        }
+        input:focus,input:hover{
+            text-indent: 2px;
+        }
+        input:focus + span.title,input:hover + span.title{
+            transform: translateX(-120%);
+        }
+        input:valid ~ label::after{
+            content:"输入邮箱符合格式！";
+        }
+        input:invalid ~ label::after{
+            content:"您输入的邮箱有误！";
+        }
+        input:valid{
+            border:2px solid green;
+        }
+        input:invalid{
+            border:2px solid;
+            border-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="#">
+            <input name="mail" type="email" required placeholder="请输入邮箱">
+            <span class="title">邮箱</span>
+            <label for="mail"></label>
+        </form>
+    </div>
+</body>
+</html>
